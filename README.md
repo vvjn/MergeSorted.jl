@@ -4,7 +4,16 @@
 
 Efficiently merge two sorted vectors into one sorted vector. Provides the `mergesorted` and `mergesorted!` functions.
 
-## Installation
+E.g.
+
+```julia
+using MergeSorted
+
+a = sort!(rand(1000), order=Base.Reverse)
+b = sort!(rand(1000), order=Base.Reverse)
+c = mergesorted(a,b, order=Base.Reverse)
+sort!(vcat(a,b), order=Base.Reverse) == c
+```
 
 MergeSorted can be installed as follows.
 
