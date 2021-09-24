@@ -43,9 +43,9 @@ end
 
 function mergesorted!(v::AbstractVector, vl::AbstractVector,
                       vr::AbstractVector, order::Ordering)
-    inds = indices(v,1)
-    indsl = indices(vl,1)
-    indsr = indices(vr,1)
+    inds = eachindex(v)
+    indsl = eachindex(vl)
+    indsr = eachindex(vr)
     mergesorted!(v,first(inds),last(inds),vl,first(indsl),last(indsl),
                  vr,first(indsr),last(indsr),order)
 end
