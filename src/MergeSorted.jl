@@ -51,7 +51,7 @@ function mergesorted!(v::AbstractVector, vl::AbstractVector,
 end
 
 """
-    mergesorted!(v, vl, vr; lt=isless, by=identity, rev::Bool=false, order::Ordering=Forward)
+    mergesorted!(v, vl, vr; lt=isless, by=identity, rev::Union{Bool,Nothing}=nothing, order::Ordering=Forward)
 
 Merge sorted vectors `vl` and `vr`, overwriting vector `v`. Assumes
 that `vl` and `vr` are sorted and does not check whether `vl` or `vr`
@@ -71,23 +71,23 @@ function mergesorted!(v::AbstractVector,
                       vr::AbstractVector;
                       lt=isless,
                       by=identity,
-                      rev::Bool=false,
+                      rev::Union{Bool,Nothing}=nothing,
                       order::Ordering=Forward)
     ordr = ord(lt,by,rev,order)
     mergesorted!(v, vl, vr, ordr)
 end
 
 """
-    mergesorted(vl, vr; lt=isless, by=identity, rev::Bool=false, order::Ordering=Forward)
+    mergesorted(vl, vr; lt=isless, by=identity, rev::Union{Bool,Nothing}=nothing, order::Ordering=Forward)
 
 Merge sorted vectors `vl` and `vr`. See [`mergesorted!`](@ref).
 """
 function mergesorted(vl::AbstractVector,
-                      vr::AbstractVector;
-                      lt=isless,
-                      by=identity,
-                      rev::Bool=false,
-                      order::Ordering=Forward)
+                     vr::AbstractVector;
+                     lt=isless,
+                     by=identity,
+                     rev::Union{Bool,Nothing}=nothing,
+                     order::Ordering=Forward)
     v = similar(promote_type(typeof(vl),typeof(vr)), length(vl)+length(vr))
     ordr = ord(lt,by,rev,order)
     mergesorted!(v, vl, vr, ordr)

@@ -9,15 +9,20 @@ E.g.
 ```julia
 using MergeSorted
 
-a = sort!(rand(1000), order=Base.Reverse)
-b = sort!(rand(1000), order=Base.Reverse)
+a = sort!(rand(5), order=Base.Reverse)
+b = sort!(rand(5), order=Base.Reverse)
+
 c = mergesorted(a,b, order=Base.Reverse)
 sort!(vcat(a,b), order=Base.Reverse) == c
+
+d = zeros(10)
+mergesorted!(d, a, b, order=Base.Reverse)
+sort!(vcat(a,b), order=Base.Reverse) == d
 ```
 
 MergeSorted can be installed as follows.
 
 ```julia
-Pkg.add("MergeSorted")
+using Pkg; Pkg.add("MergeSorted")
 ```
 
