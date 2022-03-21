@@ -1,7 +1,7 @@
 using MergeSorted
-using Base.Test
+import Test: @test, @testset
 
-function test1()
+@testset "Correctness" begin
     a = sort!(rand(1000))
     b = sort!(rand(1000))
     @test sort!(vcat(a,b)) == mergesorted(a,b)
@@ -10,5 +10,3 @@ function test1()
     b = sort!(rand(1000), order=Base.Reverse)
     @test sort!(vcat(a,b), order=Base.Reverse) == mergesorted(a,b, order=Base.Reverse)
 end
-
-test1()
