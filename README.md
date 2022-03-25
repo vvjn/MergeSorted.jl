@@ -1,8 +1,8 @@
 # MergeSorted
 
-[![Build Status](https://travis-ci.org/vvjn/MergeSorted.jl.svg?branch=master)](https://travis-ci.org/vvjn/MergeSorted.jl) [![codecov.io](http://codecov.io/github/vvjn/MergeSorted.jl/coverage.svg?branch=master)](http://codecov.io/github/vvjn/MergeSorted.jl?branch=master)
+![CI](https://github.com/takuti/Recommendation.jl/workflows/CI/badge.svg)
 
-Efficiently merge two sorted vectors into one sorted vector. Provides the `mergesorted` and `mergesorted!` functions.
+Efficiently merge two sorted vectors into one sorted vector in linear time. Provides the `mergesorted` and `mergesorted!` functions.
 
 E.g.
 
