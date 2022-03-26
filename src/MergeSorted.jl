@@ -53,12 +53,15 @@ end
 """
     mergesorted!(v, vl, vr; lt=isless, by=identity, rev::Union{Bool,Nothing}=nothing, order::Ordering=Forward)
 
-Merge sorted vectors `vl` and `vr`, overwriting vector `v`. Assumes
+Merge sorted vectors `vl` and `vr`, overwriting vector `v`, in linear time. Assumes
 that `vl` and `vr` are sorted and does not check whether `vl` or `vr`
 are sorted. You could used `issorted` to check if `vl` and `vr` are sorted.
 If length of `v` is less than the sum of the lengths of
 `vl` and `vr`, this simply stops when all indices in `v` are filled.
-The `by` keyword lets you provide a function that will be applied to
+If larger, it stops when `vl` and `vr` are merged into `v`.
+
+The `lt`, `by`, `rev`, `order` keywords work the same as for the `sort` function.
+Namely, the `by` keyword lets you provide a function that will be applied to
 each element before comparison; the `lt` keyword allows providing a
 custom "less than" function; use `rev=true` to reverse the sorting
 order. These options are independent and can be used together in all
@@ -80,7 +83,7 @@ end
 """
     mergesorted(vl, vr; lt=isless, by=identity, rev::Union{Bool,Nothing}=nothing, order::Ordering=Forward)
 
-Merge sorted vectors `vl` and `vr`. See [`mergesorted!`](@ref).
+Merge sorted vectors `vl` and `vr` into a new sorted vector in linear time. See [`mergesorted!`](@ref).
 """
 function mergesorted(vl::AbstractVector,
                      vr::AbstractVector;

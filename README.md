@@ -1,6 +1,7 @@
 # MergeSorted
 
-![CI](https://github.com/takuti/Recommendation.jl/workflows/CI/badge.svg)
+[![CI](https://github.com/vvjn/MergeSorted.jl/workflows/CI/badge.svg)](https://github.com/vvjn/MergeSorted.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/vvjn/MergeSorted.jl/branch/master/graph/badge.svg?token=meJ4tAxlLo)](https://codecov.io/gh/vvjn/MergeSorted.jl)
 
 Efficiently merge two sorted vectors into one sorted vector in linear time. Provides the `mergesorted` and `mergesorted!` functions.
 
